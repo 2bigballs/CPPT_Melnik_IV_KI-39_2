@@ -35,14 +35,20 @@
             this.Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AddFile = new System.Windows.Forms.Button();
             this.Delete_button = new System.Windows.Forms.Button();
-            this.Back_button = new System.Windows.Forms.Button();
             this.Rename_button = new System.Windows.Forms.Button();
             this.ViewDetails_button = new System.Windows.Forms.Button();
             this.Copy_button = new System.Windows.Forms.Button();
             this.Paste_button = new System.Windows.Forms.Button();
             this.Cut_button = new System.Windows.Forms.Button();
             this.About_button = new System.Windows.Forms.Button();
+            this.MyPc_button = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.Back_pictureBox = new System.Windows.Forms.PictureBox();
+            this.BackAbove_pictureBox = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Back_pictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BackAbove_pictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // Path_textBox
@@ -112,16 +118,6 @@
             this.Delete_button.UseVisualStyleBackColor = true;
             this.Delete_button.Click += new System.EventHandler(this.Delete_button_Click);
             // 
-            // Back_button
-            // 
-            this.Back_button.Location = new System.Drawing.Point(169, 143);
-            this.Back_button.Name = "Back_button";
-            this.Back_button.Size = new System.Drawing.Size(75, 23);
-            this.Back_button.TabIndex = 6;
-            this.Back_button.Text = "Back";
-            this.Back_button.UseVisualStyleBackColor = true;
-            this.Back_button.Click += new System.EventHandler(this.Back_button_Click);
-            // 
             // Rename_button
             // 
             this.Rename_button.Enabled = false;
@@ -187,27 +183,74 @@
             this.About_button.UseVisualStyleBackColor = true;
             this.About_button.Click += new System.EventHandler(this.About_button_Click);
             // 
+            // MyPc_button
+            // 
+            this.MyPc_button.Location = new System.Drawing.Point(128, 192);
+            this.MyPc_button.Name = "MyPc_button";
+            this.MyPc_button.Size = new System.Drawing.Size(91, 40);
+            this.MyPc_button.TabIndex = 13;
+            this.MyPc_button.Text = "My PC";
+            this.MyPc_button.UseVisualStyleBackColor = true;
+            this.MyPc_button.Click += new System.EventHandler(this.MyPc_button_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::FileManager.Properties.Resources.myPCico;
+            this.pictureBox1.Location = new System.Drawing.Point(78, 192);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(44, 40);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 14;
+            this.pictureBox1.TabStop = false;
+            // 
+            // Back_pictureBox
+            // 
+            this.Back_pictureBox.Image = global::FileManager.Properties.Resources.backIco;
+            this.Back_pictureBox.Location = new System.Drawing.Point(164, 143);
+            this.Back_pictureBox.Name = "Back_pictureBox";
+            this.Back_pictureBox.Size = new System.Drawing.Size(55, 31);
+            this.Back_pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.Back_pictureBox.TabIndex = 15;
+            this.Back_pictureBox.TabStop = false;
+            this.Back_pictureBox.Click += new System.EventHandler(this.Back_pictureBox_Click);
+            // 
+            // BackAbove_pictureBox
+            // 
+            this.BackAbove_pictureBox.Image = global::FileManager.Properties.Resources.upIco;
+            this.BackAbove_pictureBox.Location = new System.Drawing.Point(828, 100);
+            this.BackAbove_pictureBox.Name = "BackAbove_pictureBox";
+            this.BackAbove_pictureBox.Size = new System.Drawing.Size(51, 23);
+            this.BackAbove_pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.BackAbove_pictureBox.TabIndex = 16;
+            this.BackAbove_pictureBox.TabStop = false;
+            this.BackAbove_pictureBox.Click += new System.EventHandler(this.BackAbove_pictureBox_Click);
+            // 
             // FileManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(973, 613);
+            this.Controls.Add(this.BackAbove_pictureBox);
+            this.Controls.Add(this.Back_pictureBox);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.MyPc_button);
             this.Controls.Add(this.About_button);
             this.Controls.Add(this.Cut_button);
             this.Controls.Add(this.Paste_button);
             this.Controls.Add(this.Copy_button);
             this.Controls.Add(this.ViewDetails_button);
             this.Controls.Add(this.Rename_button);
-            this.Controls.Add(this.Back_button);
             this.Controls.Add(this.Delete_button);
             this.Controls.Add(this.AddFile);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Path_textBox);
-           
             this.Text = "File Manager";
             this.Load += new System.EventHandler(this.FileManager_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Back_pictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BackAbove_pictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -219,7 +262,6 @@
         private DataGridView dataGridView1;
         private Button AddFile;
         private Button Delete_button;
-        private Button Back_button;
         private Button Rename_button;
         private DataGridViewImageColumn ImageFile;
         private DataGridViewTextBoxColumn Name;
@@ -228,5 +270,9 @@
         private Button Paste_button;
         private Button Cut_button;
         private Button About_button;
+        private Button MyPc_button;
+        private PictureBox pictureBox1;
+        private PictureBox Back_pictureBox;
+        private PictureBox BackAbove_pictureBox;
     }
 }

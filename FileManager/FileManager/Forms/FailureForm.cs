@@ -1,7 +1,4 @@
 ﻿
-
-using System.Windows.Forms;
-
 namespace FileManager.Forms
 {
     public partial class FailureForm : Form
@@ -20,14 +17,5 @@ namespace FileManager.Forms
         {
             this.Close();
         }
-
-        
     }
-
 }
-
-
-    
-
-
-

@@ -51,7 +51,6 @@
             this.fileNameLabel.Size = new System.Drawing.Size(60, 15);
             this.fileNameLabel.TabIndex = 1;
             this.fileNameLabel.Text = "File Name";
-            this.fileNameLabel.Click += new System.EventHandler(this.label1_Click);
             // 
             // typeFileLabel
             // 
@@ -102,7 +101,6 @@
             this.Controls.Add(this.fileName_textBox);
             this.Name = "AddForm";
             this.Text = "Creating File";
-            this.Load += new System.EventHandler(this.AddForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

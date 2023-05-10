@@ -15,11 +15,9 @@ namespace FileManager.Forms
         private string copyFilePath = String.Empty;
         private string cutFilePath = String.Empty;
 
-
         public FileManager()
         {
             InitializeComponent();
-
         }
 
         private void FileManager_Load(object sender, EventArgs e)
@@ -198,16 +196,6 @@ namespace FileManager.Forms
             dataGridView1.Rows.Clear();
             FileManager_Load(sender, e);
         }
-        private void Back_button_Click(object sender, EventArgs e)
-        {
-            if (previousPath.Count > 0)
-            {
-                currentPath = previousPath.Last();
-                previousPath.Remove(previousPath.Last());
-                dataGridView1.Rows.Clear();
-                FileManager_Load(sender, e);
-            }
-        }
         private void Path_textBox_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
@@ -323,7 +311,7 @@ namespace FileManager.Forms
 
             PictureBox pictureBox = new PictureBox();
             pictureBox.Size = new Size(30,30);
-            pictureBox.Location = new Point(60, 205 + y);
+            pictureBox.Location = new Point(90, 265 + y);
             pictureBox.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox.Image = Image.FromFile("..\\..\\..\\Resources\\discIco.png");
             
@@ -333,8 +321,8 @@ namespace FileManager.Forms
             Button button = new Button();
             button.Name = $"Disc{driveInfo.Name.Remove(1, 2)}_button";
             button.Click += new System.EventHandler(func);
-            button.Location = new Point(100, 200 + y);
-            button.Size = new Size(60, 40);
+            button.Location = new Point(130, 260 + y);
+            button.Size = new Size(90, 40);
             button.Text = driveInfo.Name;
             this.Controls.Add(button);
         }
@@ -344,7 +332,54 @@ namespace FileManager.Forms
             AboutForm modalAboutForm = new AboutForm();
             modalAboutForm.ShowDialog();
         }
+
+        private void MyPc_button_Click(object sender, EventArgs e)
+        {
+            previousPath.Add(currentPath);
+            currentPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+
+            dataGridView1.Rows.Clear();
+            FileManager_Load(sender, e);
+        }
+
+        private void Back_pictureBox_Click(object sender, EventArgs e)
+        {
+            if (previousPath.Count > 0)
+            {
+                currentPath = previousPath.Last();
+                previousPath.Remove(previousPath.Last());
+                dataGridView1.Rows.Clear();
+                FileManager_Load(sender, e);
+            }
+        }
+
+        private void BackAbove_pictureBox_Click(object sender, EventArgs e)
+        {
+            var splitList = currentPath.Split('\\').ToList();
+
+            for (int i = 0; i < splitList.Count; i++)
+            {
+                if (string.IsNullOrEmpty(splitList[i]))
+                {
+                    splitList.RemoveAt(i);
+                }
+            }
+
+            if (splitList.Count <= 1)
+            { 
+                return;
+            }
+
+            splitList.RemoveAt(splitList.Count-1);
+            previousPath.Add(currentPath);
+            currentPath = "";
+            foreach (var item in splitList)
+            {
+                currentPath = Path.Combine(currentPath, item);
+            }
+            currentPath += "\\";
+            dataGridView1.Rows.Clear();
+            FileManager_Load(sender, e);
+        }
     }
-
-
 }

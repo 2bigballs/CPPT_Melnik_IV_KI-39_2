@@ -13,16 +13,6 @@ namespace FileManager.Forms
             _currentPath = currentPath;
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void AddForm_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
             _fileManagerService.CreateFile(fileName_textBox.Text,fileType_textBox.Text,_currentPath);

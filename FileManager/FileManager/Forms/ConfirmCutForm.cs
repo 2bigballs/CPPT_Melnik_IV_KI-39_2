@@ -10,7 +10,6 @@
             _fromPath = fromPath;
             _toPath = toPath;
         }
-
         private void ConfirmForm_Load(object sender, EventArgs e)
         {
             var fileName= Path.GetFileName(_fromPath);

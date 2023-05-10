@@ -1,10 +1,4 @@
 ﻿using System.Diagnostics;
-using System.IO;
-using System.Net;
-using System.Reflection;
-using System.Runtime.InteropServices;
-using System.Text;
-using System.Windows.Forms.VisualStyles;
 using FileManager.Forms;
 using FileManager.Interfaces;
 using FileManager.Models;
@@ -18,7 +12,8 @@ public class FileManagerService : IFileManagerService
 
         if (folderPath == null)
         {
-            MessageBox.Show("Path must be required!");
+            FailureForm failureForm = new FailureForm("Path must be required!");
+            failureForm.ShowDialog();
             return new List<string>();
         }
 
@@ -63,8 +58,6 @@ public class FileManagerService : IFileManagerService
         string successfulFileText = $"File {fileName} successful create!";
         SuccessfulForm modalFileSuccessfulForm = new SuccessfulForm(successfulFileText);
         modalFileSuccessfulForm.ShowDialog();
-
-
     }
 
     public void DeleteFile(string filePath)
@@ -109,6 +102,13 @@ public class FileManagerService : IFileManagerService
 
     public void OpenFile(string filePath)
     {
+        if (!File.Exists(filePath))
+        {
+            FailureForm failureForm = new FailureForm("File not found!");
+            failureForm.ShowDialog();
+            return;
+        }
+
         Process.Start("explorer.exe", filePath);
     }
 
@@ -392,6 +392,4 @@ public class FileManagerService : IFileManagerService
         FailureForm modalFailureForm = new FailureForm(failureText);
         modalFailureForm.ShowDialog();
     }
-
-   
 }

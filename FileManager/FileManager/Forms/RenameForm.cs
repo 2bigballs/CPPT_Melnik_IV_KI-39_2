@@ -14,8 +14,6 @@ namespace FileManager.Forms
             _selectedCell = selectedCell;
             _currentPath = currentPath;
         }
-
-
         private void RenameForm_Load(object sender, EventArgs e)
         {
             currentName_textBox.Text= _selectedCell.AccessibilityObject.Value;
